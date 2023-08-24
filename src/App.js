@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
 
-function App() {
+let printLetters = (start, end) => {
+  if(start.charCodeAt(0) <= end.charCodeAt(0)) {
+    console.log(start);
+    const nextLetter = String.fromCharCode(start.charCodeAt(0) + 1);
+    setTimeout(() => printLetters(nextLetter, end), 1000);
+  }
+}
+
+let App = () => {
+  useEffect(() => {
+    printLetters("A", "F");
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
     </div>
   );
 }
